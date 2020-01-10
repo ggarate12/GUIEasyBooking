@@ -3,6 +3,9 @@ package Ventanas;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import Objetos.Usuario;
+
 import javax.swing.JComboBox;
 
 import java.awt.event.ActionEvent;
@@ -78,7 +81,7 @@ public class VentanaRegistrar extends JFrame{
 		btnRegistrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				Usuario u = new Usuario()
 			}
 		});
 	}
