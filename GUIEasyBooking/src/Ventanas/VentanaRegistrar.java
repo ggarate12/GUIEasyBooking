@@ -4,22 +4,41 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import Controller.Controller;
 import Objetos.Usuario;
 
 import javax.swing.JComboBox;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
 public class VentanaRegistrar extends JFrame{
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	
+	private Controller controller;
+	
+	ArrayList<String> arrayAeropuertos = new ArrayList<>();
+	String bcn = "BCN";
+	String bio = "BIO";
+	String mad = "MAD";
+	String svq = "SVQ";
+	
+	
+	private JTextField tfNombre;
+	private JTextField tfEmail;
+	private JTextField tfEdad;
+	private JTextField tfPassword;
+	private JTextField tfRepitePasssword;
 	public VentanaRegistrar() {
+		
+		arrayAeropuertos.add(bcn);
+		arrayAeropuertos.add(bio);
+		arrayAeropuertos.add(mad);
+		arrayAeropuertos.add(svq);
+		
 		getContentPane().setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
@@ -30,46 +49,51 @@ public class VentanaRegistrar extends JFrame{
 		lblEmail.setBounds(47, 52, 81, 14);
 		getContentPane().add(lblEmail);
 		
-		textField = new JTextField();
-		textField.setBounds(188, 24, 96, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		tfNombre = new JTextField();
+		tfNombre.setBounds(188, 24, 96, 20);
+		getContentPane().add(tfNombre);
+		tfNombre.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(188, 49, 96, 20);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		tfEmail = new JTextField();
+		tfEmail.setBounds(188, 49, 96, 20);
+		getContentPane().add(tfEmail);
+		tfEmail.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(188, 74, 96, 20);
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		tfEdad = new JTextField();
+		tfEdad.setBounds(188, 74, 96, 20);
+		getContentPane().add(tfEdad);
+		tfEdad.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(188, 100, 96, 20);
-		getContentPane().add(textField_3);
-		textField_3.setColumns(10);
+		tfPassword = new JTextField();
+		tfPassword.setBounds(188, 100, 96, 20);
+		getContentPane().add(tfPassword);
+		tfPassword.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(188, 125, 96, 20);
-		getContentPane().add(textField_4);
-		textField_4.setColumns(10);
+		tfRepitePasssword = new JTextField();
+		tfRepitePasssword.setBounds(188, 125, 96, 20);
+		getContentPane().add(tfRepitePasssword);
+		tfRepitePasssword.setColumns(10);
 		
 		JLabel lblEdad = new JLabel("Edad");
 		lblEdad.setBounds(47, 77, 81, 14);
 		getContentPane().add(lblEdad);
 		
-		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setBounds(47, 103, 81, 14);
-		getContentPane().add(lblContrasea);
+		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
+		lblContrasena.setBounds(47, 103, 81, 14);
+		getContentPane().add(lblContrasena);
 		
-		JLabel lblRepiteContrasea = new JLabel("Repite contrase\u00F1a");
-		lblRepiteContrasea.setBounds(47, 128, 104, 14);
-		getContentPane().add(lblRepiteContrasea);
+		JLabel lblRepiteContrasena = new JLabel("Repite contrase\u00F1a");
+		lblRepiteContrasena.setBounds(47, 128, 104, 14);
+		getContentPane().add(lblRepiteContrasena);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(188, 151, 96, 22);
-		getContentPane().add(comboBox);
+		JComboBox<String> cbAeropuertos = new JComboBox<String>();
+		cbAeropuertos.setBounds(188, 151, 96, 22);
+		getContentPane().add(cbAeropuertos);
+		DefaultComboBoxModel<String> cbModel = new DefaultComboBoxModel<>();
+		for (int i = 0; i < arrayAeropuertos.size(); i++) {
+			cbModel.addElement(arrayAeropuertos.get(i));
+		}
+		cbAeropuertos.setModel(cbModel);
 		
 		JLabel lblAeropuertoPreferido = new JLabel("Aeropuerto Preferido");
 		lblAeropuertoPreferido.setBounds(47, 155, 104, 14);
@@ -81,7 +105,14 @@ public class VentanaRegistrar extends JFrame{
 		btnRegistrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Usuario u = new Usuario()
+				if(controller.comprobarContrasenyas(password, passwordRepetido) == true) {
+					controller.crearUsuario(tfNombre.getText(), tfEmail.getText(), Integer.parseInt(tfEdad.getText()), cbAeropuertos.getSelectedItem().toString(), tfPassword.getText());
+					tfNombre.setText("");
+					tfEmail.setText("");
+					tfEdad.setText("");
+					tfPassword.setText("");
+					tfRepitePasssword.setText("");
+				}
 			}
 		});
 	}

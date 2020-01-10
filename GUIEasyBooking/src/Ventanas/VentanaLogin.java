@@ -22,7 +22,6 @@ public class VentanaLogin extends JFrame{
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				//controller.Registrar();
 				VentanaRegistrar vr = new VentanaRegistrar();
 				vr.setVisible(true);
 				dispose();

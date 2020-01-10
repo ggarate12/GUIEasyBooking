@@ -14,11 +14,18 @@ public class Usuario {
 	private int edad;
 	private String tipoLogin;
 	private String aeropuertoPreferido;
+	private String password;
 	
 	@Persistent(mappedBy = "usuario")
 	private List<Reserva> reservas = new ArrayList<>();
 	
-	public Usuario() {
+	public Usuario(String nombre, String email, int edad, String tipoLogin, String aeropuertoPreferido, String password) {
+		this.nombre = nombre;
+		this.email = email;
+		this.edad = edad;
+		this.tipoLogin = tipoLogin;
+		this.aeropuertoPreferido = aeropuertoPreferido;
+		this.password = password;	
 	}
 
 	public String getNombre() {
@@ -59,6 +66,14 @@ public class Usuario {
 
 	public void setAeropuerto_preferido(String aeropuertoPreferido) {
 		this.aeropuertoPreferido = aeropuertoPreferido;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public List<Reserva> getReservas() {
