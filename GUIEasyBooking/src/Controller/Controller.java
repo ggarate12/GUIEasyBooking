@@ -1,9 +1,13 @@
 package Controller;
 
+import java.util.ArrayList;
+
 import Objetos.Usuario;
 
 public class Controller {
 	
+	ArrayList<Usuario> usuarios = new ArrayList<>();
+		
 	public Usuario crearUsuario(String nombre, String email, int edad,
 			String aeropuertoPreferido, String password) {
 		Usuario u = new Usuario(nombre, email, edad, "Google", aeropuertoPreferido, password);
@@ -16,6 +20,15 @@ public class Controller {
 		}else {
 			return false;
 		}
+	}
+	
+	public boolean comprobarUsuario(String usuario, String password) {
+		for(int i = 0; i < usuarios.size(); i++) {
+			if(usuario.equals(usuarios.get(i)) || password.equals(usuarios.get(i).getPassword())){
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

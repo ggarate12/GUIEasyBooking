@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import Controller.Controller;
-import Objetos.Usuario;
+
 
 import javax.swing.JComboBox;
 
@@ -90,28 +90,31 @@ public class VentanaRegistrar extends JFrame{
 		lblAeropuertoPreferido.setBounds(47, 155, 104, 14);
 		getContentPane().add(lblAeropuertoPreferido);
 		
-		JButton btnRegistrar = new JButton("Registrar");
-		btnRegistrar.setBounds(195, 215, 89, 23);
-		getContentPane().add(btnRegistrar);
-		
 		pfPassword = new JPasswordField();
 		pfPassword.setBounds(188, 100, 96, 20);
 		getContentPane().add(pfPassword);
+		String password = new String(pfPassword.getPassword());
 		
 		pfRepitePassword = new JPasswordField();
 		pfRepitePassword.setBounds(188, 125, 96, 20);
 		getContentPane().add(pfRepitePassword);
+		String repitePassword = new String(pfRepitePassword.getPassword());
+		
+
+		JButton btnRegistrar = new JButton("Registrar");
+		btnRegistrar.setBounds(195, 215, 89, 23);
+		getContentPane().add(btnRegistrar);		
 		btnRegistrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				if(controller.comprobarContrasenyas(pfPassword.getPassword(), pfRepitePassword.getText()) == true) {
-//					controller.crearUsuario(tfNombre.getText(), tfEmail.getText(), Integer.parseInt(tfEdad.getText()), cbAeropuertos.getSelectedItem().toString(), pfPassword.getText());
-//					tfNombre.setText("");
-//					tfEmail.setText("");
-//					tfEdad.setText("");
-//					pfPassword.setText("");
-//					pfRepitePassword.setText("");
-//				}
+				if(controller.comprobarContrasenyas(password, repitePassword )== true) {
+					controller.crearUsuario(tfNombre.getText(), tfEmail.getText(), Integer.parseInt(tfEdad.getText()), cbAeropuertos.getSelectedItem().toString(), password);
+					tfNombre.setText("");
+					tfEmail.setText("");
+					tfEdad.setText("");
+					pfPassword.setText("");
+					pfRepitePassword.setText("");
+				}
 			}
 		});
 	}
