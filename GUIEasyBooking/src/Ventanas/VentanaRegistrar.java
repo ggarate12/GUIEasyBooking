@@ -86,6 +86,7 @@ public class VentanaRegistrar extends JFrame{
 		pfPassword.setBounds(188, 100, 96, 20);
 		getContentPane().add(pfPassword);
 		String password = new String(pfPassword.getPassword());
+		//hola
 		
 		pfRepitePassword = new JPasswordField();
 		pfRepitePassword.setBounds(188, 125, 96, 20);
