@@ -21,12 +21,7 @@ public class VentanaRegistrar extends JFrame{
 	
 	private Controller controller;
 	
-	ArrayList<String> arrayAeropuertos = new ArrayList<>();
-	String bcn = "BCN";
-	String bio = "BIO";
-	String mad = "MAD";
-	String svq = "SVQ";
-	
+
 	
 	private JTextField tfNombre;
 	private JTextField tfEmail;
@@ -35,10 +30,7 @@ public class VentanaRegistrar extends JFrame{
 	private JPasswordField pfRepitePassword;
 	public VentanaRegistrar() {
 		
-		arrayAeropuertos.add(bcn);
-		arrayAeropuertos.add(bio);
-		arrayAeropuertos.add(mad);
-		arrayAeropuertos.add(svq);
+		
 		
 		getContentPane().setLayout(null);
 		
@@ -81,8 +73,8 @@ public class VentanaRegistrar extends JFrame{
 		cbAeropuertos.setBounds(188, 151, 96, 22);
 		getContentPane().add(cbAeropuertos);
 		DefaultComboBoxModel<String> cbModel = new DefaultComboBoxModel<>();
-		for (int i = 0; i < arrayAeropuertos.size(); i++) {
-			cbModel.addElement(arrayAeropuertos.get(i));
+		for (int i = 0; i < controller.arrayAeropuertos.size(); i++) {
+			cbModel.addElement(controller.arrayAeropuertos.get(i));
 		}
 		cbAeropuertos.setModel(cbModel);
 		
