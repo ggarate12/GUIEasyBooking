@@ -49,15 +49,24 @@ public class Controller {
 		arrayAeropuertos.add(bio);
 		arrayAeropuertos.add(mad);
 		arrayAeropuertos.add(svq);
-		for(int d = 1; d <32; d++) {
-			dias.add(d);
-		}
 		for(int m = 1; m<13; m++) {
-			meses.add(m);
+			if(m == 2) {
+				for(int d = 1; d <31; d++) {
+					dias.add(d);
+				}
+			}else if(m == 11 || m == 9 || m == 6 || m == 4){
+				for(int d = 1; d <31; d++) {
+					dias.add(d);
+				}		
+			}else {
+				for(int d = 1; d < 32; d++) {
+					dias.add(d);
+				}
+			}
+		meses.add(m);
 		}
 		anyos.add(2020);
 		anyos.add(2021);
-		
 	}
 
 }

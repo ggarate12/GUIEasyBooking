@@ -106,14 +106,6 @@ public class VentanaReservar extends JFrame{
 		lblAnyo.setBounds(263, 60, 49, 14);
 		getContentPane().add(lblAnyo);
 		
-		JComboBox<Integer> cbDia = new JComboBox<Integer>();
-		cbDia.setBounds(87, 56, 49, 22);
-		getContentPane().add(cbDia);
-		DefaultComboBoxModel<Integer> cbModel1 = new DefaultComboBoxModel<>();
-		for (int i = 0; i < controller.dias.size(); i++) {
-			cbModel1.addElement(controller.dias.get(i));
-		}
-		cbDia.setModel(cbModel1);
 		
 		JComboBox<Integer> cbMes = new JComboBox<Integer>();
 		cbMes.setBounds(200, 56, 49, 22);
@@ -123,6 +115,15 @@ public class VentanaReservar extends JFrame{
 			cbModel2.addElement(controller.meses.get(i));
 		}
 		cbMes.setModel(cbModel2);
+		
+		JComboBox<Integer> cbDia = new JComboBox<Integer>();
+		cbDia.setBounds(87, 56, 49, 22);
+		getContentPane().add(cbDia);
+		DefaultComboBoxModel<Integer> cbModel1 = new DefaultComboBoxModel<>();
+		for (int i = 0; i < controller.dias.size(); i++) {
+			cbModel1.addElement(controller.dias.get(i));
+		}
+		cbDia.setModel(cbModel1);
 		
 		JComboBox<Integer> cbAnyo = new JComboBox<Integer>();
 		cbAnyo.setBounds(306, 56, 49, 22);
