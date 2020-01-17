@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import Objetos.Usuario;
 import Objetos.Vuelo;
-import Objetos.Aerolinea;
 
 public class Controller {
 	
