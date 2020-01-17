@@ -1,4 +1,4 @@
-package Ventanas;
+package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;

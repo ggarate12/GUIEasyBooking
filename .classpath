@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="GUIEasyBooking/src"/>
+	<classpathentry kind="lib" path="GUIEasyBooking/lib/datanucleus-api-jdo-5.2.2.jar"/>
+	<classpathentry kind="lib" path="GUIEasyBooking/lib/datanucleus-cache-5.1.1.jar"/>
+	<classpathentry kind="lib" path="GUIEasyBooking/lib/datanucleus-core-5.2.2.jar"/>
+	<classpathentry kind="lib" path="GUIEasyBooking/lib/datanucleus-rdbms-5.2.1.jar"/>
+	<classpathentry kind="lib" path="GUIEasyBooking/lib/javax.jdo-3.2.0-m12.jar"/>
+	<classpathentry kind="lib" path="GUIEasyBooking/lib/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="GUIEasyBooking/lib/mysql-connector-java-8.0.17.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

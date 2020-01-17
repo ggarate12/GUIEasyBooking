@@ -1,4 +1,4 @@
-package Ventanas;
+package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -6,8 +6,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
-import Controller.Controller;
-import Objetos.Vuelo;
+import controller.Controller;
+import data.Vuelo;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;

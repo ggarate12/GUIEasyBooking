@@ -1,4 +1,4 @@
-package Ventanas;
+package gui;
 
 import javax.swing.JFrame;
 
@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-import Controller.Controller;
+import controller.Controller;
 
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;

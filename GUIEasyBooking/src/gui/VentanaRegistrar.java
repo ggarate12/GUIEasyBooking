@@ -1,11 +1,10 @@
-package Ventanas;
+package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import Controller.Controller;
-
+import controller.Controller;
 
 import javax.swing.JComboBox;
 

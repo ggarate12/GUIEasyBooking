@@ -1,9 +1,9 @@
-package Controller;
+package controller;
 
 import java.util.ArrayList;
 
-import Objetos.Usuario;
-import Objetos.Vuelo;
+import data.Usuario;
+import data.Vuelo;
 
 public class Controller {
 	

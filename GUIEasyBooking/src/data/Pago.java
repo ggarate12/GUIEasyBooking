@@ -1,4 +1,4 @@
-package Objetos;
+package data;
 
 
 import javax.jdo.annotations.PersistenceCapable;
