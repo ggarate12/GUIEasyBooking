@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import controller.Controller;
+import controller.ControllerReservar;
 
 import javax.swing.JComboBox;
 
@@ -18,7 +18,7 @@ import javax.swing.JPasswordField;
 
 public class VentanaRegistrar extends JFrame{
 	
-	private Controller controller;
+	private ControllerReservar controller;
 	
 
 	

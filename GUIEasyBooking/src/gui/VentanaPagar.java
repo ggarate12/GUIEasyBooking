@@ -2,6 +2,9 @@ package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import controller.ControllerPagar;
+
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -9,6 +12,7 @@ import javax.swing.JButton;
 public class VentanaPagar extends JFrame{
 	private JTextField textField;
 	private JPasswordField passwordField;
+	private ControllerPagar controller;
 	public VentanaPagar() {
 		getContentPane().setLayout(null);
 		

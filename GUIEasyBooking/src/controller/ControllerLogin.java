@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import data.Usuario;
 import data.Vuelo;
 
-public class Controller {
+public class ControllerLogin {
 	
 	public ArrayList<Usuario> usuarios = new ArrayList<>();
 	public ArrayList<Vuelo> vuelos = new ArrayList<>();
@@ -15,10 +15,6 @@ public class Controller {
 	String bio = "BIO";
 	String mad = "MAD";
 	String svq = "SVQ";
-	
-	public ArrayList<Integer> dias = new ArrayList<>();
-	public ArrayList<Integer> meses = new ArrayList<>();
-	public ArrayList<Integer> anyos = new ArrayList<>();
 		
 	public Usuario crearUsuario(String nombre, String email, int edad,
 			String aeropuertoPreferido, String password) {
@@ -43,29 +39,6 @@ public class Controller {
 		return false;
 	}
 	
-	public Controller() {
-		arrayAeropuertos.add(bcn);
-		arrayAeropuertos.add(bio);
-		arrayAeropuertos.add(mad);
-		arrayAeropuertos.add(svq);
-		for(int m = 1; m<13; m++) {
-			if(m == 2) {
-				for(int d = 1; d <31; d++) {
-					dias.add(d);
-				}
-			}else if(m == 11 || m == 9 || m == 6 || m == 4){
-				for(int d = 1; d <31; d++) {
-					dias.add(d);
-				}		
-			}else {
-				for(int d = 1; d < 32; d++) {
-					dias.add(d);
-				}
-			}
-		meses.add(m);
-		}
-		anyos.add(2020);
-		anyos.add(2021);
-	}
+	
 
 }

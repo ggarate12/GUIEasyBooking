@@ -6,7 +6,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
-import controller.Controller;
+import controller.ControllerReservar;
 import data.Vuelo;
 
 import javax.swing.JComboBox;
@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 
 public class VentanaReservar extends JFrame{
 	
-	Controller controller;
+	ControllerReservar controller;
 	private JTable table;
 	private String fecha;
 	public VentanaReservar() {
@@ -56,7 +56,7 @@ public class VentanaReservar extends JFrame{
 		getContentPane().add(table);
 		
 		ArrayList<Vuelo> vuelosACargar = new ArrayList<>();
-		for (Vuelo vuelo : controller.vuelos) {
+		for (Vuelo vuelo : controller.vuelos) { //Cambiar por metodo getVuelos
 			if(cbOrigen.equals(vuelo.getAeropuertoOrigen()) && cbDestino.equals(vuelo.getAeropuertoDestino())) {
 				vuelosACargar.add(vuelo);
 			}else if(cbOrigen.equals(vuelo.getAeropuertoOrigen()) && fecha.equals(vuelo.getFecha())) { //añadir campo de fecha

@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-import controller.Controller;
+import controller.ControllerLogin;
 
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -16,7 +16,7 @@ import javax.swing.JPasswordField;
 public class VentanaLogin extends JFrame{
 	private JPasswordField pfPassword;
 	private JTextField tfUsuario;
-	Controller controller = new Controller();
+	ControllerLogin controller = new ControllerLogin();
 	VentanaReservar vreservar = new VentanaReservar();
 	
 	public VentanaLogin() {
