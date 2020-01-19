@@ -4,11 +4,12 @@ import javax.swing.JFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-import controller.Controller;
+import controller.LoginController;
 
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -16,8 +17,7 @@ import javax.swing.JPasswordField;
 public class VentanaLogin extends JFrame{
 	private JPasswordField pfPassword;
 	private JTextField tfUsuario;
-	Controller controller = new Controller();
-	VentanaReservar vreservar = new VentanaReservar();
+	LoginController controller = new LoginController();
 	
 	public VentanaLogin() {
 		getContentPane().setLayout(null);
@@ -31,7 +31,6 @@ public class VentanaLogin extends JFrame{
 		pfPassword.setBounds(113, 112, 218, 20);
 		getContentPane().add(pfPassword);
 		pfPassword.setColumns(10);
-		String password = new String(pfPassword.getPassword());
 		
 		JLabel lblUsuario = new JLabel("Usuario");
 		lblUsuario.setBounds(59, 64, 44, 20);
@@ -47,12 +46,22 @@ public class VentanaLogin extends JFrame{
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				if(controller.comprobarUsuario(tfUsuario.getText(), password)== true) {
-					vreservar.setVisible(true);
-					dispose();
-				} else{
-					tfUsuario.setText("");
-					pfPassword.setText("");
+//				System.out.println("siuhdauids");
+//				System.out.println(pfPassword.getPassword());
+				try {
+					if(controller.login(tfUsuario.getText(), pfPassword.getPassword())== true) {
+						System.out.println("login correcto");
+						VentanaReservar vreservar = new VentanaReservar();
+						vreservar.setVisible(true);
+						dispose();
+					} else{
+						System.out.println("error login");
+						tfUsuario.setText("");
+						pfPassword.setText("");
+					}
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				};
 			}
 		});

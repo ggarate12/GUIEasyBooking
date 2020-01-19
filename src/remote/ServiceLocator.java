@@ -8,10 +8,10 @@ import data.Reserva;
 import data.Usuario;
 import data.Vuelo;
 
-public class ServiceLocator implements IServer {
+public class ServiceLocator {
 	static String IP = "127.0.0.1";
 	static String Puerto = "1099";
-	static String ServiceName = "Easybooking";
+	static String ServiceName = "EasyBooking";
 	
 	private IEasyBookingServer server;
 	
@@ -23,70 +23,11 @@ public class ServiceLocator implements IServer {
 		}
 	}
 
-	@Override
-	public boolean login(String email, String password) throws RemoteException {
-		// TODO Auto-generated method stub
-		return server.login(email, password);
+	public IEasyBookingServer getServer() {
+		return server;
 	}
 
-	@Override
-	public boolean register(String email, String password, String nombre, int edad, String aeropuertoPreferido)
-			throws RemoteException {
-		
-		return false;
-	}
-
-	@Override
-	public boolean reservarYpagar(int precio, int plazas, String emailPaypal, String contrasenyaPaypal,
-			String codigoVuelo, String emailUsuarioReserva) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public List<Vuelo> buscarVueloIdaYVuelta(String aeropuertoDestino, String aeropuertoOrigen, String fechaIda,
-			String fechaVuelta, int asientos) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Vuelo> buscarVueloIda(String aeropuertoDestino, String aeropuertoOrigen, String fechaIda, int asientos)
-			throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Vuelo> getAllVuelos() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Vuelo> buscarVuelosDesdeOrigen(String aeropuertoOrigen, String fecha, int asientos)
-			throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Reserva> getReservasByUser(String email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Usuario getUserInfo(String email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Vuelo getVueloInfo(String codVuelo) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 	
 }

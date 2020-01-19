@@ -34,15 +34,7 @@ public class Controller {
 		}
 	}
 	
-	public boolean comprobarUsuario(String usuario, String password) {
-		for(int i = 0; i < usuarios.size(); i++) {
-			if(usuario.equals(usuarios.get(i)) || password.equals(usuarios.get(i).getPassword())){
-				return true;
-			}
-		}
-		return false;
-	}
-	
+
 	public Controller() {
 		arrayAeropuertos.add(bcn);
 		arrayAeropuertos.add(bio);
