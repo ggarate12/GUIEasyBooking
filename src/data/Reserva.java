@@ -1,7 +1,6 @@
 package data;
 
-import javax.jdo.annotations.PersistenceCapable;
-@PersistenceCapable
+
 public class Reserva {
 	
 	private String tipoPago;

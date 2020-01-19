@@ -3,10 +3,6 @@ package data;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-
-@PersistenceCapable
 public class Usuario {
 	
 	private String nombre;	
@@ -16,7 +12,6 @@ public class Usuario {
 	private String aeropuertoPreferido;
 	private String password;
 	
-	@Persistent(mappedBy = "usuario")
 	private List<Reserva> reservas = new ArrayList<>();
 	
 	public Usuario(String nombre, String email, int edad, String tipoLogin, String aeropuertoPreferido, String password) {

@@ -2,9 +2,6 @@ package data;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-@PersistenceCapable
 public class Vuelo {
 	
 	private String aeropuertoDestino;
@@ -13,8 +10,6 @@ public class Vuelo {
 	private int numAsientos;
 
 	private Aerolinea aerolinea; 
-	
-	@Persistent(mappedBy = "vuelo")
 	private List<Reserva> reservas = new ArrayList<>();
 		
 	public Vuelo() {

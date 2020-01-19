@@ -1,9 +1,6 @@
 package data;
 
 
-import javax.jdo.annotations.PersistenceCapable;
-
-@PersistenceCapable
 public class Pago {
 	
 	private String tipo; // PayPal || Tarjeta
