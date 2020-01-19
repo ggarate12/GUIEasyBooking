@@ -8,13 +8,20 @@ public class Vuelo {
 	private String aeropuertoOrigen;
 	private String fecha;
 	private int numAsientos;
-
-	private Aerolinea aerolinea; 
-	private List<Reserva> reservas = new ArrayList<>();
+	private int precio;
+	private String nomaerolinea; 
 		
 	public Vuelo() {
 	}
 	
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
 	public String getFecha() {
 		return fecha;
 	}
@@ -47,35 +54,13 @@ public class Vuelo {
 		this.aeropuertoOrigen = aeropuertoOrigen;
 	}
 
-	public Aerolinea getAerolinea() {
-		return aerolinea;
+	public String getNomAerolinea() {
+		return nomaerolinea;
 	}
 
-	public void setAerolinea(Aerolinea aerolinea) {
-		this.aerolinea = aerolinea;
+	public void setNomAerolinea(String aerolinea) {
+		this.nomaerolinea = aerolinea;
 	}
 
-	public List<Reserva> getReservas() {
-		return reservas;
-	}
-
-	public void setReservas(List<Reserva> reservas) {
-		this.reservas = reservas;
-	}
-	
-//Obtener numero de reservas
-	public int getNumeroReservas() {
-		return reservas.size();
-	}
-	
-	//añadir reservas en la lista
-	public void addReserva(Reserva reserva) {
-		reservas.add(reserva);
-	}
-
-	//eliminar reserva de la lista
-	public void removeReserva(Reserva reserva) {
-		reservas.remove(reserva);
-	}
 }
  

@@ -6,6 +6,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
+import controller.BuscarController;
 import controller.Controller;
 import data.Vuelo;
 
@@ -14,15 +15,34 @@ import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class VentanaReservar extends JFrame{
 	
-	Controller controller;
+
+	private static final long serialVersionUID = 1L;
+	private BuscarController controller;
 	private JTable table;
 	private String fecha;
+	
 	public VentanaReservar() {
+		controller = new BuscarController();
+		
+		try {
+			System.out.println("1");
+			controller.loadAeropuertos();
+			System.out.println("2");
+			controller.loadVuelos();
+			System.out.println("3");
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			System.out.println("partesajodias");
+			System.out.println("error... " + e.getMessage());
+			e.printStackTrace();
+		}
+		
 		getContentPane().setLayout(null);
 		JButton btnReservar = new JButton("Reservar");
 		btnReservar.setBounds(173, 229, 89, 23);
@@ -32,8 +52,8 @@ public class VentanaReservar extends JFrame{
 		cbOrigen.setBounds(75, 11, 89, 23);
 		getContentPane().add(cbOrigen);
 		DefaultComboBoxModel<String> cbModel = new DefaultComboBoxModel<>();
-		for (int i = 0; i < controller.arrayAeropuertos.size(); i++) {
-			cbModel.addElement(controller.arrayAeropuertos.get(i));
+		for (int i = 0; i < controller.getArrayAeropuertos().size(); i++) {
+			cbModel.addElement(controller.getArrayAeropuertos().get(i));
 		}
 		cbOrigen.setModel(cbModel);
 		
@@ -56,7 +76,7 @@ public class VentanaReservar extends JFrame{
 		getContentPane().add(table);
 		
 		ArrayList<Vuelo> vuelosACargar = new ArrayList<>();
-		for (Vuelo vuelo : controller.vuelos) {
+		for (Vuelo vuelo : controller.getVuelos()) {
 			if(cbOrigen.equals(vuelo.getAeropuertoOrigen()) && cbDestino.equals(vuelo.getAeropuertoDestino())) {
 				vuelosACargar.add(vuelo);
 			}else if(cbOrigen.equals(vuelo.getAeropuertoOrigen()) && fecha.equals(vuelo.getFecha())) { //añadir campo de fecha
@@ -78,7 +98,7 @@ public class VentanaReservar extends JFrame{
 					matriz[i][1] = vuelosACargar.get(i).getAeropuertoOrigen();
 					matriz[i][2] = vuelosACargar.get(i).getAeropuertoDestino();
 					matriz[i][3] = Integer.toString(vuelosACargar.get(i).getNumAsientos());
-					matriz[i][4] = vuelosACargar.get(i).getAerolinea().toString();
+					matriz[i][4] = vuelosACargar.get(i).getNomAerolinea();
 						
 						
 					table.setModel(new DefaultTableModel(
@@ -111,8 +131,8 @@ public class VentanaReservar extends JFrame{
 		cbMes.setBounds(200, 56, 49, 22);
 		getContentPane().add(cbMes);
 		DefaultComboBoxModel<Integer> cbModel2 = new DefaultComboBoxModel<>();
-		for (int i = 0; i < controller.meses.size(); i++) {
-			cbModel2.addElement(controller.meses.get(i));
+		for (int i = 0; i < controller.getMeses().size(); i++) {
+			cbModel2.addElement(controller.getMeses().get(i));
 		}
 		cbMes.setModel(cbModel2);
 		
@@ -120,8 +140,8 @@ public class VentanaReservar extends JFrame{
 		cbDia.setBounds(87, 56, 49, 22);
 		getContentPane().add(cbDia);
 		DefaultComboBoxModel<Integer> cbModel1 = new DefaultComboBoxModel<>();
-		for (int i = 0; i < controller.dias.size(); i++) {
-			cbModel1.addElement(controller.dias.get(i));
+		for (int i = 0; i < controller.getDias().size(); i++) {
+			cbModel1.addElement(controller.getDias().get(i));
 		}
 		cbDia.setModel(cbModel1);
 		
@@ -129,8 +149,8 @@ public class VentanaReservar extends JFrame{
 		cbAnyo.setBounds(306, 56, 49, 22);
 		getContentPane().add(cbAnyo);
 		DefaultComboBoxModel<Integer> cbModel3 = new DefaultComboBoxModel<>();
-		for (int i = 0; i < controller.anyos.size(); i++) {
-			cbModel3.addElement(controller.anyos.get(i));
+		for (int i = 0; i < controller.getAnyos().size(); i++) {
+			cbModel3.addElement(controller.getAnyos().get(i));
 		}
 		cbMes.setModel(cbModel3);
 		

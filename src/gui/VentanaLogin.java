@@ -15,11 +15,15 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 
 public class VentanaLogin extends JFrame{
+
+	private static final long serialVersionUID = 1L;
 	private JPasswordField pfPassword;
 	private JTextField tfUsuario;
-	LoginController controller = new LoginController();
+	LoginController controller;
 	
 	public VentanaLogin() {
+		
+		controller = new LoginController();
 		getContentPane().setLayout(null);
 		
 		tfUsuario = new JTextField();
@@ -45,12 +49,9 @@ public class VentanaLogin extends JFrame{
 		getContentPane().add(btnLogin);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-//				System.out.println("siuhdauids");
-//				System.out.println(pfPassword.getPassword());
-				try {
 					if(controller.login(tfUsuario.getText(), pfPassword.getPassword())== true) {
 						System.out.println("login correcto");
+						controller.finish();
 						VentanaReservar vreservar = new VentanaReservar();
 						vreservar.setVisible(true);
 						dispose();
@@ -59,12 +60,9 @@ public class VentanaLogin extends JFrame{
 						tfUsuario.setText("");
 						pfPassword.setText("");
 					}
-				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
 				};
 			}
-		});
+		);
 		
 		JButton btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.setBounds(113, 172, 89, 23);

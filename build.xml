@@ -30,7 +30,7 @@
          </javac>
     </target>
     
-	<target name="2.run" description="Run the Client">
+	<target name="2.run" depends="1.compile" description="Run the Client">
 			<java classname="bin.Main" classpathref="classpath" fork="true">
 				<jvmarg value="-Djava.rmi.server.codebase=file:${bin.dir}/"/>
 				<jvmarg value="-Djava.security.policy=${policy.file}"/>		

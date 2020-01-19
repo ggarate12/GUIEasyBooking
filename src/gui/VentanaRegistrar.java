@@ -18,7 +18,7 @@ import javax.swing.JPasswordField;
 
 public class VentanaRegistrar extends JFrame{
 	
-	private Controller controller;
+	private Controller controller = new Controller();
 	
 
 	
@@ -27,6 +27,7 @@ public class VentanaRegistrar extends JFrame{
 	private JTextField tfEdad;
 	private JPasswordField pfPassword;
 	private JPasswordField pfRepitePassword;
+	
 	public VentanaRegistrar() {
 		
 		
